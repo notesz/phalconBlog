@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Controller;
 use Phalcon\Http\Response;
 
-class BaseController extends Controller
+class ControllerBase extends Controller
 {
 
     protected $response;

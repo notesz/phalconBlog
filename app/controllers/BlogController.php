@@ -1,6 +1,6 @@
 <?php
 
-class BlogController extends BaseController
+class BlogController extends ControllerBase
 {
 
     public function indexAction() {
