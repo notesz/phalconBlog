@@ -51,13 +51,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/">Home</a>
+                    <a href="<?=$this->url->get(array('for' => 'home'))?>">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="<?=$this->url->get(array('for' => 'content-about'))?>">About</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="<?=$this->url->get(array('for' => 'content-contact'))?>">Contact</a>
                 </li>
             </ul>
         </div>
