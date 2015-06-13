@@ -3,6 +3,7 @@
 use \Phalcon\DI\FactoryDefault;
 use \Phalcon\Mvc\Router;
 use \Phalcon\Mvc\Url as UrlProvider;
+use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use \Phalcon\Mvc\View;
 use \Phalcon\Session\Adapter\Files as Session;
 
@@ -30,4 +31,14 @@ $di->set('session', function() {
     $session = new Session();
     $session->start();
     return $session;
+});
+
+$di->set('db', function () use ($config) {
+    $db = new DbAdapter(array(
+        'host'     => $config->database->host,
+        'username' => $config->database->username,
+        'password' => $config->database->password,
+        'dbname'   => $config->database->dbname
+    ));
+    return $db;
 });
