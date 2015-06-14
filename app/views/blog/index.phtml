@@ -19,7 +19,8 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<?php foreach ($posts as $postId => $postData) : ?>
+<?php if (!empty($posts)) : ?>
+<?php foreach ($posts as $postData) : ?>
             <div class="post-preview">
                 <a href="<?=$this->url->get(array('for' => 'blog-post-view', 'post_id' => $postData['id']))?>">
                     <h2 class="post-title">
@@ -33,6 +34,7 @@
             </div>
             <hr>
 <?php endforeach; ?>
+<?php endif; ?>
 
 <?php include dirname(__FILE__) . '/../pagination.phtml'; ?>
 

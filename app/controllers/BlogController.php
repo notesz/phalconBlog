@@ -26,7 +26,7 @@ class BlogController extends ControllerBase
             )
         );
 
-        $this->view->setVar('posts', $paginator->getPaginate());
+        $this->view->setVar('posts', $paginator->getPaginate()->items);
 
         $this->view->setVar('pager', array(
             'before'      => $paginator->getPaginate()->before,
