@@ -21,7 +21,7 @@
 
 <?php foreach ($posts as $postId => $postData) : ?>
             <div class="post-preview">
-                <a href="<?=$this->url->get(array('for' => 'blog-post-view', 'post_id' => $postId))?>">
+                <a href="<?=$this->url->get(array('for' => 'blog-post-view', 'post_id' => $postData['id']))?>">
                     <h2 class="post-title">
                         <?=$postData['title']?>
                     </h2>
@@ -33,6 +33,8 @@
             </div>
             <hr>
 <?php endforeach; ?>
+
+<?php include dirname(__FILE__) . '/../pagination.phtml'; ?>
 
         </div>
     </div>
