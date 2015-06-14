@@ -19,7 +19,11 @@ class Blog extends Model
     public static function getPost()
     {
         $posts = array();
-        $items = Blog::find();
+        $items = Blog::find(
+            array(
+                'order' => 'public_date DESC'
+            )
+        );
 
         foreach ($items as $item) {
             $posts[$item->id] = array(
@@ -30,8 +34,6 @@ class Blog extends Model
                 'public_date' => $item->public_date
             );
         }
-
-        arsort($posts);
 
         return $posts;
     }
