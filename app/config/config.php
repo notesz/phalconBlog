@@ -12,7 +12,8 @@ $config = new Config(array(
         'host'     => 'phalcon.db',
         'username' => 'phalcontest',
         'password' => 'phalcontest',
-        'dbname'   => 'phalcontest'
+        'dbname'   => 'phalcontest',
+        'charset'  => 'utf8'
     ),
     'redis' => array(
         'host'     => '127.0.0.1',
