@@ -2,8 +2,13 @@
 <nav>
     <ul class="pagination pagination-lg">
         <li<?=(($pager['current'] == 1) ? ' class="disabled"' : '')?>>
+            <a href="?page=1" aria-label="First">
+                <span aria-hidden="true">First</span>
+            </a>
+        </li>
+        <li<?=(($pager['current'] == 1) ? ' class="disabled"' : '')?>>
             <a href="?page=<?=$pager['before']?>" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
+                <span aria-hidden="true">Previous</span>
             </a>
         </li>
 <?php for ($i = 1; $i < $pager['total_pages'] + 1; $i++) : ?>
@@ -17,7 +22,12 @@
 <?php endfor; ?>
         <li<?=(($pager['current'] == $pager['last']) ? ' class="disabled"' : '')?>>
             <a href="?page=<?=$pager['next']?>" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+        <li<?=(($pager['current'] == $pager['last']) ? ' class="disabled"' : '')?>>
+            <a href="?page=<?=$pager['last']?>" aria-label="Last">
+                <span aria-hidden="true">Last</span>
             </a>
         </li>
     </ul>

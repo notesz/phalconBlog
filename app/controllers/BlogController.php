@@ -34,7 +34,7 @@ class BlogController extends ControllerBase
         $paginator = new PaginatorArray(
             array(
                 'data'  => $posts,
-                'limit' => 10,
+                'limit' => 20,
                 'page'  => $this->request->get('page')
             )
         );
