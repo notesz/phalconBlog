@@ -21,7 +21,7 @@ class BlogController extends ControllerBase
 
             $this->redis->save('posts', $posts);
 
-            return posts;
+            return $posts;
         }
 
         return $this->redis->get('posts');
