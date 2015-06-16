@@ -1,24 +1,20 @@
 <?php
 
-use Phalcon\Mvc\Model;
-
-class Blog extends Model
+class Blog extends \Phalcon\Mvc\Model
 {
     const SOURCE  = 'blog_posts';
 
-    public function initialize()
-    {
+    public function initialize() {
         $this->setSource(self::SOURCE);
     }
 
-    public function getSource()
-    {
+    public function getSource() {
         return self::SOURCE;
     }
 
-    public static function getPost()
-    {
+    public static function getPost() {
         $posts = array();
+
         $items = Blog::find(
             array(
                 'order' => 'public_date DESC'

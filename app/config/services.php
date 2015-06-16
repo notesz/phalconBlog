@@ -6,6 +6,8 @@ use \Phalcon\Mvc\Url as UrlProvider;
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use \Phalcon\Mvc\View;
 use \Phalcon\Session\Adapter\Files as Session;
+use \Phalcon\Cache\Backend\Redis as Redis;
+use \Phalcon\Cache\Frontend\Data as FrontendData;
 
 $di = new FactoryDefault();
 
@@ -41,4 +43,18 @@ $di->set('db', function () use ($config) {
         'dbname'   => $config->database->dbname
     ));
     return $db;
+});
+
+$di->set('redis', function() use ($config) {
+    $redis = new Redis(
+        new FrontendData(array(
+            'lifetime' => $config->redis->lifetime
+        )),
+        array(
+            'host'       => $config->redis->host,
+            'port'       => $config->redis->port,
+            'persistent' => false
+        )
+    );
+    return $redis;
 });

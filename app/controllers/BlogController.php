@@ -15,8 +15,21 @@ class BlogController extends ControllerBase
         $this->request = new Request();
     }
 
+    public function getPosts() {
+        if ($this->redis->get('posts') === null) {
+            $posts = $this->blog->getPost();
+
+            $this->redis->save('posts', $posts);
+
+            return posts;
+        }
+
+        return $this->redis->get('posts');
+    }
+
     public function indexAction() {
-        $posts = $this->blog->getPost();
+
+        $posts = $this->getPosts();
 
         $paginator = new PaginatorArray(
             array(
@@ -39,7 +52,8 @@ class BlogController extends ControllerBase
     }
 
     public function postAction() {
-        $posts = $this->blog->getPost();
+        $posts = $this->getPosts();
+
         $postId = $this->dispatcher->getParam('post_id');
 
         if (empty($posts[$postId])) {

@@ -13,5 +13,10 @@ $config = new Config(array(
         'username' => 'phalcontest',
         'password' => 'phalcontest',
         'dbname'   => 'phalcontest'
+    ),
+    'redis' => array(
+        'host'     => '127.0.0.1',
+        'port'     => 6379,
+        'lifetime' => 60 // 1 hour
     )
 ));
